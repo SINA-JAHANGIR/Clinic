@@ -1,62 +1,85 @@
-# Clinic
+# Console-Clinic-Management-System
 
-## Table of Contents
-- [About](#about)
-- [Installation](#installation)
+A multi-role, data-persistent Clinic Management System engineered from scratch in C. Designed for institutional workflow simulation, this terminal application features layered data structures, safe binary/text file interaction, custom runtime encryption, and a completely responsive keyboard-driven UI.
 
-## About
-The Clinic Management System is a C++ project developed as my final assignment for the Basic Programming (BP) course. This terminal-based application runs without a graphical user interface (GUI) and is designed to streamline the operations of a medical clinic by managing essential tasks such as adding doctors, patients, reservations, and prescriptions.
+> 🎓 **Academic Project:** This project was developed as a final project for the **Basics of Programming (BP)** course during my university studies to demonstrate structural software architecture and file-based data management in C.
 
-- **Doctor Management**: Add, view, and manage doctor profiles.
-- **Patient Management**: Register patients, view their records, and manage their data.
-- **Reservation System**: Schedule, view, and modify clinic appointments.
-- **Prescription Management**: Track and manage patient prescriptions.
+---
 
-## Installation
-To compile and run the Clinic Management System on your local machine, follow these steps:
+## 🩺 What can you do in this app?
+
+### 1. The Control Center (Admin Mode)
+Think of this as the clinic's mastermind mode. The Admin sets up the whole ecosystem before anyone else steps in:
+*   **Create Accounts:** Instantly register new Doctors and Patients with auto-generated unique IDs.
+*   **Manage the Calendar:** Set up the clinic's working days or dynamic 3-month calendar with just a few keystrokes.
+*   **Set Holidays:** Easily flag specific days as official clinic holidays and add a reason (e.g., "National Holiday").
+*   **Supervise Everything:** Access a master schedule to monitor every single booked appointment across the entire clinic.
+
+### 2. The Medical Dashboard (Doctor Mode)
+A dedicated space for physicians to manage their time, patients, and earnings:
+*   **Set Shifts:** Pick specific active days on the calendar or set automated recurring shifts for the whole month.
+*   **Custom Checkup Times:** Decide how long each patient visit should last (choose from 60, 90, 120, or 150 minutes).
+*   **Digital Prescriptions:** Review patient history and write dynamic text-based prescriptions on the spot.
+*   **Wallet & Rent:** Keep track of total earnings and pay the monthly clinic rent directly through an automated wallet system.
+
+### 3. The Patient Portal (Patient Mode)
+A smooth, self-service experience built entirely for the clients:
+*   **Smart Booking:** Browse available doctors, view their active days, and claim an open time slot.
+*   **Digital Wallet:** Add funds and pay for appointments instantly (includes automatic clinic fee calculations).
+*   **Easy Cancellations:** Plans changed? Cancel any upcoming appointment dynamically and get an automatic 50% refund credited back to your wallet.
+*   **Prescription History:** Access and read all digital prescriptions issued by your doctors anytime.
+
+---
+## 🏗️ Architecture & Data Layout
+
+The application replaces heavy external database systems with structural arrays and strict file-parsing mechanics, ensuring light memory allocation and cross-session persistence:
+
+*   **File Ecosystem:** 
+    *   `Doctors.txt`: Stores structural profiles, institutional IDs, and secure records for medical staff.
+    *   `Patients.txt`: Manages patient records, dynamic history, and medical archives.
+    *   `Calendar.bin`: A global binary-encoded array processing clinic runtime schedules across 93 unique dynamic days.
+    *   `Data.txt`: Retains the system bootstrap configurations (e.g., calendar dimensions, start-of-month metadata).
+
+*   **Security Layer:** Implements a localized Caesar-variant cryptographic stream cipher (`hash` and `hashback`). Highly sensitive fields such as National Identification Numbers are fully transformed during disk I/O operations and decrypted strictly in volatile runtime memory.
+
+---
+
+## 🕹️ Controls & Navigation Format
+
+The user interface uses asynchronous keystroke capturing (`<conio.h>`) for seamless menu navigation without relying on continuous line inputs:
+
+*   **Grid Navigation:** Use the **`Up / Down / Left / Right Arrow Keys`** (`72`, `80`, `75`, `77`) to move highlighters across arrays or structural calendar blocks.
+*   **Action Execution:** Press **`ENTER`** (`13`) to toggle a date state, confirm a transaction, or validate a form.
+*   **Backward Escape:** Press **`SPACE`** (`32`) at any interface level to safely escape back to the parent component.
+
+
+> 🔑 **Quick Access Note:** To access the admin features instantly without creating new testing credentials, use the default administrative root bypass:
+> * **USERNAME:** `Admin`
+> * **PASSWORD:** `Admin`
+
+---
+
+## 🖥️ Compilation and Execution
 
 ### Prerequisites
-- A C++ compiler, such as `g++`, should be installed on your system. If you don't have it installed, you can get it by following the appropriate instructions for your platform:
-  - **Linux**: Install via package manager, e.g., `sudo apt install g++`.
-  - **Windows**: You can install `g++` through [MinGW](https://sourceforge.net/projects/mingw/) or use an IDE like Microsoft Visual Studio.
+This codebase is engineered for the Windows console environment and depends on native Win32/MSVC runtime indicators alongside standard console I/O headers.
 
 ### Steps
+```bash
+# Compile via GCC (or any compatible MSVC toolchain)
+gcc -o clinic_system Clinic.cpp
 
-1. **Clone the repository:**
-   Open your terminal and run the following command to clone the Clinic project repository:
+# Execute the application
+./clinic_system
 
-   ```bash
-   git clone https://github.com/SINA-JAHANGIR/Clinic.git
-   ```
+```
 
-2. **Navigate to the project directory:**
-   Change to the directory where the code was cloned:
+---
 
-   ```bash
-   cd /path/to/Clinic
-   ```
-
-3. **Compile the program:**
-   Compile the Clinic code using `g++` or another C++ compiler:
-
-   ```bash
-   g++ -o clinic clinic.cpp
-   ```
-
-4. **Run the program:**
-   After compiling, run the executable to start the application:
-
-   ```bash
-   ./clinic
-   ```
-
-## Note
-You can access the admin page with the username and password `Admin`.
-
-
-![Clinic Screenshot](Clinic-Screenshot-1.png)
-![Clinic Screenshot](Clinic-Screenshot-2.png)
-![Clinic Screenshot](Clinic-Screenshot-3.png)
-![Clinic Screenshot](Clinic-Screenshot-4.png)
-![Clinic Screenshot](Clinic-Screenshot-5.png)
-![Clinic Screenshot](Clinic-Screenshot-6.png)
+## 📷 Screenshots
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-1.png)
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-2.png)
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-3.png)
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-4.png)
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-5.png)
+![Clinic Screenshot](Screenshots/Clinic-Screenshot-6.png)
