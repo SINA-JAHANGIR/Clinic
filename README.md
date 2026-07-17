@@ -15,6 +15,11 @@ Think of this as the clinic's mastermind mode. The Admin sets up the whole ecosy
 *   **Set Holidays:** Easily flag specific days as official clinic holidays and add a reason (e.g., "National Holiday").
 *   **Supervise Everything:** Access a master schedule to monitor every single booked appointment across the entire clinic.
 
+
+> 🔑 **Quick Access Note:** To access the admin features:
+> * **USERNAME:** `Admin`
+> * **PASSWORD:** `Admin`
+
 ### 2. The Medical Dashboard (Doctor Mode)
 A dedicated space for physicians to manage their time, patients, and earnings:
 *   **Set Shifts:** Pick specific active days on the calendar or set automated recurring shifts for the whole month.
@@ -51,11 +56,6 @@ The user interface uses asynchronous keystroke capturing (`<conio.h>`) for seaml
 *   **Grid Navigation:** Use the **`Up / Down / Left / Right Arrow Keys`** (`72`, `80`, `75`, `77`) to move highlighters across arrays or structural calendar blocks.
 *   **Action Execution:** Press **`ENTER`** (`13`) to toggle a date state, confirm a transaction, or validate a form.
 *   **Backward Escape:** Press **`SPACE`** (`32`) at any interface level to safely escape back to the parent component.
-
-
-> 🔑 **Quick Access Note:** To access the admin features instantly without creating new testing credentials, use the default administrative root bypass:
-> * **USERNAME:** `Admin`
-> * **PASSWORD:** `Admin`
 
 ---
 
